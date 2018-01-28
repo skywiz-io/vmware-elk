@@ -3,24 +3,28 @@
 
 - name: Setting SELinux to permissive
   selinux: policy=targeted state=permissive
+    hosts: ELK
 
 - name: Install Java 8
   include: java.yml
+    hosts: ELK
 
 - name: Install Elasticsearch
   include: elasticsearch.yml
+    hosts: ELK
 
 - name: Install Kibana
   include: kibana.yml
+    hosts: ELK
 
 - name: Install Nginx
   include: nginx.yml
+    hosts: ELK
 
 - name: Install Logstash
   include: logstash.yml
+    hosts: ELK
 
 - name: Restart Services
   include: ../handlers/main.yml
-
-#- name: Load Kibana dashboards
-#  include: dashboard.yml 
+    hosts: ELK

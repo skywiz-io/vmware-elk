@@ -1,6 +1,7 @@
 ---
 # defaults file for ansible-elk
 
+elk_adress: 127.0.0.1
 java_version: 1.8.0
 
 elk_kibana:

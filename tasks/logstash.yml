@@ -12,6 +12,9 @@
 - name: Configure Logstash input
   copy: src=02-beats-input.conf dest=/etc/logstash/conf.d/02-beats-input.conf
 
+- name: Configure Logstash ouput
+  copy: src=03-syslog-input.conf dest=/etc/logstash/conf.d/03-syslog-input.conf
+
 - name: Configure Logstash syslog filter
   copy: src=10-syslog-filter.conf dest=/etc/logstash/conf.d/10-syslog-filter.conf
 

@@ -1,0 +1,12 @@
+---
+
+- name: get current syslog servers
+  shell: esxcli system syslog config get |tail -1| awk -F ': ' '{print $2}'
+    register: current_syslog
+
+- name: echo
+  shell: /bin/echo {{ current_syslog }}
+
+- name: Add ELK to ESX's syslog servers
+  shell: esxcli system syslog config set --loghost="{{ current_syslog }},{{ elk_adress }}"
+  
